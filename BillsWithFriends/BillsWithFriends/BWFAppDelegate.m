@@ -7,15 +7,27 @@
 //
 
 #import "BWFAppDelegate.h"
+#import "BWFPeopleViewController.h"
 
 @implementation BWFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    BWFPeopleViewController *peopleViewController = [[BWFPeopleViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:peopleViewController];
+    
+    peopleViewController.view.frame = CGRectMake(0,
+                                                 navigationController.navigationBar.frame.size.height,
+                                                 navigationController.view.frame.size.width,
+                                                 navigationController.view.frame.size.height - navigationController.navigationBar.frame.size.height);
+    
+    [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

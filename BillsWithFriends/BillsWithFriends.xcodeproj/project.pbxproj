@@ -19,6 +19,7 @@
 		D9CC1C141853B7F000547457 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CC1BFC1853B7F000547457 /* UIKit.framework */; };
 		D9CC1C1C1853B7F000547457 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CC1C1A1853B7F000547457 /* InfoPlist.strings */; };
 		D9CC1C1E1853B7F000547457 /* BillsWithFriendsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CC1C1D1853B7F000547457 /* BillsWithFriendsTests.m */; };
+		D9CC1C701853B8D700547457 /* BWFPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CC1C6F1853B8D700547457 /* BWFPeopleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		D9CC1C191853B7F000547457 /* BillsWithFriendsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillsWithFriendsTests-Info.plist"; sourceTree = "<group>"; };
 		D9CC1C1B1853B7F000547457 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9CC1C1D1853B7F000547457 /* BillsWithFriendsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillsWithFriendsTests.m; sourceTree = "<group>"; };
+		D9CC1C6E1853B8D700547457 /* BWFPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWFPeopleViewController.h; sourceTree = "<group>"; };
+		D9CC1C6F1853B8D700547457 /* BWFPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWFPeopleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				D9CC1C081853B7F000547457 /* BWFAppDelegate.m */,
 				D9CC1C0A1853B7F000547457 /* Images.xcassets */,
 				D9CC1BFF1853B7F000547457 /* Supporting Files */,
+				D9CC1C6E1853B8D700547457 /* BWFPeopleViewController.h */,
+				D9CC1C6F1853B8D700547457 /* BWFPeopleViewController.m */,
 			);
 			path = BillsWithFriends;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9CC1C701853B8D700547457 /* BWFPeopleViewController.m in Sources */,
 				D9CC1C091853B7F000547457 /* BWFAppDelegate.m in Sources */,
 				D9CC1C051853B7F000547457 /* main.m in Sources */,
 			);
