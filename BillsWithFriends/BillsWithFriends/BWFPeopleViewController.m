@@ -13,12 +13,7 @@
 #define PERSON_TEXT_VIEW_VERTICAL_BUFFER 10
 #define PERSON_TEXT_VIEW_VERTICAL_HEIGHT 30
 
-#define PERSON_TABLEVIEW_ORIGIN_X PERSON_TEXT_VIEW_VERTICAL_BUFFER *2 + TOP_BAR_HEIGHT + self.personTextField.frame.size.height
-
-//#define APP_DELEGATE  ((BWFAppDelegate *)[UIApplication sharedApplication].delegate)
-
-//#define TOP_BAR_HEIGHT self.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height
-
+#define PERSON_TABLEVIEW_ORIGIN_Y PERSON_TEXT_VIEW_VERTICAL_BUFFER *2 + TOP_BAR_HEIGHT + self.personTextField.frame.size.height
 #define TOP_BAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height
 
 @interface BWFPeopleViewController ()
@@ -31,15 +26,6 @@
 @end
 
 @implementation BWFPeopleViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -56,6 +42,13 @@
     self.personTableView.delegate = self;
     self.personTableView.dataSource = self;
     [self.personTableView setBackgroundColor:[UIColor greenColor]];
+    [self.personTableView setSeparatorInset:UIEdgeInsetsZero];
+    self.personTableView.contentOffset = CGPointMake(0, 0);
+    
+    
+    //nav button
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = nextButton;
     
     [self.view addSubview:self.personTableView];
     [self.view addSubview:self.personTextField];
@@ -78,9 +71,10 @@
                                            PERSON_TEXT_VIEW_VERTICAL_HEIGHT);
     
     self.personTableView.frame = CGRectMake(PERSON_TEXT_VIEW_HORIZONTAL_BUFFER,
-                                            PERSON_TABLEVIEW_ORIGIN_X,
+                                            PERSON_TABLEVIEW_ORIGIN_Y,
                                             self.view.frame.size.width - 2*PERSON_TEXT_VIEW_HORIZONTAL_BUFFER,
-                                            self.view.frame.size.height - PERSON_TABLEVIEW_ORIGIN_X);
+                                            self.view.frame.size.height - PERSON_TABLEVIEW_ORIGIN_Y);
+    
     
     // NSLog(@"first output:%@ second output:%@",self.personTextView,self.personTableView);
     
@@ -117,9 +111,6 @@
     return 0;
 }
 
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *cellIdentifier = @"cell";
@@ -133,6 +124,18 @@
     
     
     return cell;
+}
+
+#pragma mark - buttons
+-(void)nextButtonPressed:(id)sender
+{
+    
+    UIViewController *newViewController = [[UIViewController alloc] init];
+    [newViewController.view setBackgroundColor:[UIColor yellowColor]];
+    
+    [self.navigationController pushViewController:newViewController animated:YES];
+    
+    
 }
 
 
